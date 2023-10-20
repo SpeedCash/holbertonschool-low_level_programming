@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * print_to_98 - Write a function that prints all natural
@@ -10,41 +11,30 @@
 
 void print_to_98(int n)
 {
-	while (n <= 98)
+	if (n <= 98)
 	{
-		int num = n, reversed = 0;
-
-		if (n < 0)
+		for (; n <= 98; n++)
 		{
-			_putchar('-');
-			num = -num;
+			printf("%d", n);
+
+			if (n != 98)
+			{
+				printf(", ");
+			}
 		}
+	}
 
-	while (num != 0)
+	else
 	{
-		reversed = reversed * 10 + num % 10;
-		num /= 10;
-	}
+		for (; n >= 98; n--)
+		{
+			printf("%d", n);
 
-	if (reversed == 0)
-	{
-	_putchar('0');
+			if (n != 98)
+			{
+			printf(", ");
+			}
+		}
 	}
-
-	while (reversed != 0)
-	{
-	_putchar('0' + reversed % 10);
-	reversed /= 10;
-	}
-
-	if (n != 98)
-	{
-		_putchar(',');
-		_putchar(' ');
-	}
-
-	n++;
-
-	}
-	_putchar('\n');
+	printf("\n");
 }

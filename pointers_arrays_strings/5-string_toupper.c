@@ -6,7 +6,7 @@
  * all lowercase letters of a string to uppercase
  * @s: retour
  *
- * Return:
+ * Return: Pointer to the modified string
  */
 
 char *string_toupper(char *s)

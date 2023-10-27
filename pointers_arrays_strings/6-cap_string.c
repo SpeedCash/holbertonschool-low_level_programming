@@ -17,7 +17,7 @@ char *cap_string(char *s)
 	for (i = 0; s[i] != '\0'; i++)
 	{
 
-		if (s[i] == ' ' || s[i] == '.' || s[i] == '\n')
+		if (s[i] == ' ' || s[i] == '.' || s[i] == '\n' || s[i] == '\t' || s[i] == '-')
 		{
 			capitalize_next = 1;
 		}

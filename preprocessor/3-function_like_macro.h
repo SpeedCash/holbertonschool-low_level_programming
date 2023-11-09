@@ -1,4 +1,4 @@
-#ifndef function_like_macro.h
-#define function_like_macro.h
+#ifndef _HEADER_function_like_macro.h
+#define _HEARDER_function_like_macro.h
 #define ABS(x) ((x) < 0 ? ((x) * -1) : (x))
 #endif

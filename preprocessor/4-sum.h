@@ -1,4 +1,4 @@
-#ifndef _HEADER_
-#define _HEADER_
+#ifndef SUM_H
+#define SUM_H
 #define SUM(x, y) ((x) + (y))
 #endif

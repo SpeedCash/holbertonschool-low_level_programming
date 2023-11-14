@@ -1,3 +1,9 @@
 more_malloc_free/a
 preprocessor/e
 structures_typedef/0-main.c
+structures_typedef/1-main.c
+structures_typedef/2-main.c
+structures_typedef/3-main.c
+.gitignore
+structures_typedef/4-main.c
+structures_typedef/5-main.c

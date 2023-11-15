@@ -7,3 +7,4 @@ structures_typedef/3-main.c
 .gitignore
 structures_typedef/4-main.c
 structures_typedef/5-main.c
+.vscode/settings.json

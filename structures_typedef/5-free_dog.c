@@ -1,20 +1,29 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
 #include "dog.h"
 
 /**
- * new_dog - Creates a new dog instance.
+ * free_dog - Libère la mémoire allouée pour une instance de chien.
  *
- * This function creates a new instance of the 'dog_t'
- * structure and initializes
- * its fields with the provided name, age, and owner. Memory is allocated for
- * copying the name and owner strings. If memory allocation fails at any point,
- * the function returns NULL.
+ * Cette fonction libère la mémoire allouée pour
+ * une instance de la structure
+ * 'dog_t' et ses champs, y compris le nom et le propriétaire, s'ils ont été
+ * alloués dynamiquement. Si l'allocation de mémoire échoue
+ * à un moment donné,la fonction ne fait rien.
  *
- * @name: The name of the dog.
- * @age: The age of the dog.
- * @owner: The owner of the dog.
- *
- * Return: A pointer to the newly created dog instance, or NULL if it fails.
+ * @d: Un pointeur vers l'instance de chien à libérer.
  */
+
+void free_dog(dog_t *d)
+{
+	if (d == NULL)
+	return;
+
+	if (d->name)
+		free(d->name);
+
+	if (d->owner)
+		free(d->owner);
+
+	free(d);
+}

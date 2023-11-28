@@ -1,6 +1,6 @@
-#include "lists.h"
 #include <string.h>
 #include <stdlib.h>
+#include "lists.h"
 
 /**
  * add_node_end - Ajoute un nouveau nœud à la fin d'une liste list_t

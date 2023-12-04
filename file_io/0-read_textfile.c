@@ -1,18 +1,22 @@
 #include "main.h"
 #include <unistd.h>
 #include <fcntl.h>
+#include <stdlib.h>
 
 /**
- * read_textfile - Lit un fichier texte et l'imprime sur la sortie standard
- * @filename: le nom du fichier à lire
- * @letters: le nombre de lettres à lire et imprimer
+ * read_textfile - lit un fichier texte et imprime son contenu sur la sortie
+ * standard POSIX.
+ * @filename: le nom du fichier à lire.
+ * @letters: le nombre de lettres à lire et imprimer.
  *
- * Return: le nombre réel de lettres lues et imprimées, ou 0 en cas d'échec
+ * Return: le nombre réel de lettres qu'il a pu lire et imprimer.
+ * Si le fichier ne peut pas être ouvert ou lu, retourne 0.
+ * Si filename est NULL retourne 0.
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
-	ssize_t nread, nwritten, total_written = 0;
+	ssize_t n_read, n_written;
 	char *buffer;
 
 	if (filename == NULL)
@@ -29,23 +33,23 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 
-	while ((nread = read(fd, buffer, letters)) > 0)
+	n_read = read(fd, buffer, letters);
+	if (n_read == -1)
 	{
-		nwritten = write(STDOUT_FILENO, buffer, nread);
-		if (nwritten != nread)
-		{
-			free(buffer);
-			close(fd);
-			return (0);
-		}
-		total_written += nwritten;
+		free(buffer);
+		close(fd);
+		return (0);
+	}
+
+	n_written = write(STDOUT_FILENO, buffer, n_read);
+	if (n_written != n_read)
+	{
+		free(buffer);
+		close(fd);
+		return (0);
 	}
 
 	free(buffer);
 	close(fd);
-
-	if (nread == -1)
-		return (0);
-
-	return (total_written);
+	return (n_written);
 }

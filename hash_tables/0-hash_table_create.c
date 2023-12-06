@@ -9,6 +9,7 @@
  *
  * Return: A pointer to the new hash table, or NULL if it fails.
  */
+
 hash_table_t *hash_table_create(unsigned long int size)
 {
 	hash_table_t *ht;

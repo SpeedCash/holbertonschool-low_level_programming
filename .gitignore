@@ -41,3 +41,4 @@ file_io/1-main.c
 file_io/2-main.c
 hash_tables/0-main.c
 hash_tables/1-main.c
+hash_tables/2-main.c

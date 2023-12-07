@@ -12,7 +12,6 @@
  * or NULL if key couldn’t be found.
  */
 
-
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
 	unsigned long int index;
